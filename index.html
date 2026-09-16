@@ -6,6 +6,8 @@
   <meta name="description" content="웹디자이너·웹퍼블리셔 송서현의 포트폴리오">
   <title>송서현 포트폴리오</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://dipping-book.onrender.com" crossorigin>
+  <link rel="dns-prefetch" href="//dipping-book.onrender.com">
 </head>
 <body class="reference-real">
   <header class="header" id="header">
@@ -35,6 +37,15 @@
   <span class="hero-word" aria-hidden="true"><i>S</i><i>O</i><i>N</i><i>G</i></span>
   <span class="hero-word hero-word-last" aria-hidden="true"><i>S</i><i>E</i><i>O</i><i>H</i><i>Y</i><i>U</i><i>N</i></span>
 </h1>
+
+      <div class="hero-creative-stage" id="heroCreativeStage" title="드래그하여 3D 조형물을 회전해보세요">
+        <canvas id="creatorCanvas"></canvas>
+        <div class="creator-badge" aria-hidden="true">
+          <span class="pulse-indicator"></span>
+          <span class="badge-title">CREATIVE KINETIC FLOW</span>
+          <span class="badge-hint">DRAG TO EXPLORE 3D</span>
+        </div>
+      </div>
     </section>
 
     <!-- 소개 -->
@@ -46,7 +57,9 @@
         <div class="about-copy">
           <p class="about-intro-title">안녕하세요.<br><span>디자인을 화면으로 구현하는</span><br>송서현입니다.</p>
           <p class="about-contact-mini"><span>WEB DESIGNER</span> · WEB PUBLISHER</p>
-          <p class="about-text">웹디자인 실무 경험을 바탕으로 디자인에 그치지 않고 화면을 직접 구현할 수 있는 역량을 다시 쌓고 있습니다. 현재는 AI를 활용한 반응형 웹디자인 과정을 통해 HTML·CSS·JavaScript와 웹 제작 전반을 집중적으로 배우고 있습니다.</p>
+          <p class="about-text">웹디자인 실무 경험을 바탕으로 디자인과 구현을 함께 고민합니다.
+              HTML·CSS·JavaScript 기반의 반응형 웹 구현부터 생성형 AI 콘텐츠 제작까지,
+              아이디어를 실제 화면으로 완성하는 다양한 프로젝트를 진행했습니</p>
           <div class="about-keywords" aria-label="주요 역량">
             <span>DESIGN</span><span>PUBLISHING</span><span>AI CONTENT</span>
           </div>
@@ -58,7 +71,7 @@
     <div class="about-profile-panel">
       <div class="about-status-grid">
         <div class="current-study about-status-card">
-          <div class="current-study-date">CURRENT · 2026.04.01 — PRESENT</div>
+          <div class="current-study-date">CURRENT · 2026.04.01 — 2026.09.21</div>
           <div class="current-study-main">
             <span class="status-kicker">LEARNING NOW</span>
             <h3>AI 반응형 웹디자인 과정</h3>
@@ -100,7 +113,7 @@
           <div class="skill-content-head">
             <span>TOOLS &amp; CAPABILITY</span>
             <h3>DESIGN TOOLKIT</h3>
-            <p>디자인, 퍼블리싱, 영상과 AI 콘텐츠까지<br>프로젝트에 맞춰 연결합니다.</p>
+            <p>디자인부터 웹 구현, 영상 편집까지<br>작업에 필요한 툴을 다양하게 활용합니다.</p>
           </div>
           <div class="contact-skill-grid"><div class="contact-skill"><img src="assets/skill-icons/14_Figma.png" alt="Figma"><span>Figma</span></div><div class="contact-skill"><img src="assets/skill-icons/01_Adobe_Photoshop.png" alt="Photoshop"><span>Photoshop</span></div><div class="contact-skill"><img src="assets/skill-icons/02_Adobe_Illustrator.png" alt="Illustrator"><span>Illustrator</span></div><div class="contact-skill"><img src="assets/skill-icons/05_HTML_CSS_JS.png" alt="HTML/CSS/JS"><span>HTML/CSS/JS</span></div><div class="contact-skill"><img src="assets/skill-icons/15_Premiere_Pro.png" alt="Premiere Pro"><span>Premiere Pro</span></div><div class="contact-skill"><img src="assets/skill-icons/16_After_Effects.png" alt="After Effects"><span>After Effects</span></div><div class="contact-skill"><img src="assets/skill-icons/04_CapCut.png" alt="CapCut"><span>CapCut</span></div><div class="contact-skill"><img src="assets/skill-icons/13_Canva.png" alt="Canva"><span>Canva</span></div><div class="contact-skill"><img src="assets/skill-icons/06_Gemini.png" alt="Gemini"><span>Gemini</span></div><div class="contact-skill"><img src="assets/skill-icons/07_ChatGPT.png" alt="ChatGPT"><span>ChatGPT</span></div><div class="contact-skill"><img src="assets/skill-icons/11_NotebookLM.png" alt="NotebookLM"><span>NotebookLM</span></div><div class="contact-skill"><img src="assets/skill-icons/23_AI_Image_Generation.png" alt="AI Image"><span>AI Image</span></div></div>
         </div>
@@ -218,7 +231,7 @@
         <div class="contact-message">
           <p class="contact-kicker">AVAILABLE FOR NEW PROJECTS · 2026</p>
           <h2>LET’S CREATE<br><span>TOGETHER.</span></h2>
-          <p class="contact-desc">웹디자인 · 퍼블리싱 · AI 콘텐츠 작업과 새로운 협업을 기다리고 있습니다.</p>
+          <p class="contact-desc">디자인과 구현을 함께 이해하는 웹디자이너로 성장하겠습니다.</p>
           <div class="contact-editorial">
 
 
@@ -263,7 +276,18 @@
     <p class="simple-footer-copy">© 2026 SONG SEOHYUN PORTFOLIO</p>
   </footer>
 
+  <!-- Three.js 3D Library & Creator Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/hero-creator-3d.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    // DippingBook(Render) cold-start 완화: 포트폴리오 진입 후 백그라운드에서 서버를 미리 깨웁니다.
+    window.addEventListener('load', () => {
+      window.setTimeout(() => {
+        fetch('https://dipping-book.onrender.com/', { mode: 'no-cors', cache: 'no-store' }).catch(() => {});
+      }, 1200);
+    });
+  </script>
 <a href="#top" class="back-to-top" aria-label="맨 위로 이동">
           <span>TOP</span><b>↑</b>
         </a>

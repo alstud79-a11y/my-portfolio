@@ -93,10 +93,20 @@ const filmIndex = document.querySelector("#filmIndex");
 const filmWatermark = document.querySelector("#filmWatermark");
 const filmTags = document.querySelector("#filmTags");
 
+let filmSwitchTimer = null;
+
 filmTabs.forEach(function (tab) {
   tab.addEventListener("click", function () {
     const item = filmData[tab.dataset.film];
     if (!item) return;
+
+    // 이전 탭 전환 타이머가 남아 있으면 취소해서
+    // 빠르게 탭을 바꿔도 이전 작품의 설명이 다시 덮어쓰지 않게 합니다.
+    if (filmSwitchTimer) {
+      window.clearTimeout(filmSwitchTimer);
+      filmSwitchTimer = null;
+    }
+
     filmTabs.forEach(function (button) {
       const active = button === tab;
       button.classList.toggle("active", active);
@@ -105,7 +115,11 @@ filmTabs.forEach(function (tab) {
 
     filmPanel.classList.remove("is-entering");
     filmPanel.classList.add("is-switching");
-    window.setTimeout(function () {
+
+    filmSwitchTimer = window.setTimeout(function () {
+      // 타이머가 실행되는 순간에도 현재 활성 탭이 같은지 한 번 더 확인합니다.
+      if (!tab.classList.contains("active")) return;
+
       filmEyebrow.textContent = item.eyebrow;
       filmTitle.innerHTML = item.title;
       filmDescription.textContent = item.description;
@@ -120,6 +134,7 @@ filmTabs.forEach(function (tab) {
       filmPanel.classList.remove("is-switching");
       void filmPanel.offsetWidth;
       filmPanel.classList.add("is-entering");
+      filmSwitchTimer = null;
     }, 180);
   });
 });
